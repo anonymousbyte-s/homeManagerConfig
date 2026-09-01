@@ -108,6 +108,10 @@ in
         "--locked XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
         "--locked XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
 
+        # Keyboard backlight control
+        "--locked XF86KbdBrightnessDown" = "exec brightnessctl -d '*kbd_backlight' set 5%-";
+        "--locked XF86KbdBrightnessUp" = "exec brightnessctl -d '*kbd_backlight' set 5%+";
+
         # Special key to take a screenshot with grim
         "Print" = "exec grim";
 
