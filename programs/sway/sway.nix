@@ -6,6 +6,7 @@
 }:
 
 let
+  # touchpadScrollReverse = true;
   modifier = "Mod4";
   terminal = "foot";
   menu = "fuzzel";
@@ -16,6 +17,20 @@ let
   down = "j";
 in
 {
+  # packages for sway to use
+  home.packages = with pkgs; [
+    waybar # top bar for wayland
+    swayidle # idle managment daemon
+    swaylock-effects # display locker
+    swaybg # wallpaper manager
+    wl-clipboard # copy paste
+    grim # screen shot manager
+    slurp # partial screen shot manager
+    impala # WiFi TUI
+    bluetui # bluetooth TUI
+    fuzzel # fuzzy search
+  ];
+
   # copy the wallpaper file in the current directory to a wallpaper directory
   home.file."Pictures/wallPapers/wallpaper.png".source = ./wallpaper.png;
 
@@ -23,7 +38,24 @@ in
     enable = true;
     checkConfig = false;
 
+    # include the input config file for machine specific fixes, like trackpad scroll direction
+    extraConfig = ''
+      include /etc/nixos/programs/sway/sway-input.conf
+    '';
+
     config = {
+      input = {
+        # Disable mouse acceleration
+        "type:pointer" = {
+          accel_profile = "flat";
+        };
+        "type:touchpad" = {
+          # natural_scroll = if touchpadScrollReverse then "enable" else "disabled";
+          # Disable mouse acceleration
+          accel_profile = "flat";
+        };
+      };
+
       startup = [
         # reload waybar whenever the wm is restarted
         {
@@ -56,10 +88,11 @@ in
         "${modifier}+Escape" = "exec swaylock";
         # ADD A REALOD WAYBAR COMMAND
 
-        "${modifier}+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
+        "${modifier}+Shift+e" =
+          "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
 
         # Special keys to adjust volume via PulseAudio
-        "--locked XF86AudioRaiseVolume" =  "exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+";
+        "--locked XF86AudioRaiseVolume" = "exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+";
         "--locked XF86AudioLowerVolume" = "exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-";
         "--locked XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         "--locked XF86AudioMicMute" = "exec pactl set-source-mute @DEFAULT_SOURCE@ toggle";
@@ -219,7 +252,6 @@ in
         # your displays after another 300 seconds, and turn your screens back on when
         # resumed. It will also lock your screen before your computer goes to sleep.
 
-
         #
         # Scratchpad:
         #
@@ -232,7 +264,6 @@ in
         # Show the next scratchpad window or hide the focused scratchpad window.
         # If there are multiple scratchpad windows, this command cycles through them.
         bindsym $mod+minus scratchpad show
-
       */
 
       focus.followMouse = false;
