@@ -97,8 +97,17 @@
         border-radius: 8px;
     }
 
-    /* === Spacing fixes === */
+    /* === default on hover behavior === */
+    #cpu:hover,
+    #memory:hover,
+    #network:hover,
+    #bluetooth:hover,
+    #pulseaudio:hover {
+        background-color: #${theme.color.blue};
+        color: #${theme.color.black};
+    }
 
+    /* === Spacing fixes === */
     #backlight {
         padding-left: 7px;
         padding-right: 9px;
@@ -118,12 +127,17 @@
         padding-right: 9px;
     }
 
-    /* Make the backlight icon white */
+    /* === backlight module === */
     #backlight {
         color: #${theme.color.brightWhite};
     }
 
-    /* Highlighted module overrides */
+    #backlight:hover {
+        color: #${theme.color.black};
+        background-color: #${theme.color.brightWhite};
+    }
+
+    /* === clock === */
     #clock {
         background-color: rgba(0, 0, 0, 0);
         color: #${theme.color.brightWhite};

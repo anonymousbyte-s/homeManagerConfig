@@ -54,10 +54,7 @@
             chosen=$((chosen * 1000))
         fi
 
-        echo "$chosen"
-
         for i in "$CPU_DIR"/policy*; do
-            echo "$chosen to $i/scaling_max_freq"
             echo "$chosen" | SUDO_ASKPASS="$(which zenityAskPass)" sudo -A tee "$i/scaling_max_freq"
         done
       '';
