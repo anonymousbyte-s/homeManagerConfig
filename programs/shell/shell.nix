@@ -26,7 +26,7 @@
 
             # make the frequency options string
             options="MAX\n"
-            for (( i=$MAX_MHZ; i>=$MIN_MHZ; i -= 250 ))
+            for (( i="$MAX_MHZ"; i>="$MIN_MHZ"; i -= 250 ))
             do
                 options+="''${i}MHz\n"
             done
@@ -36,7 +36,7 @@
         fi
 
         # prompt the use to select a frequency
-        chosen=$(printf $options | fuzzel --dmenu --prompt="CPU Max Frequency:")
+        chosen=$(echo -e "$options" | fuzzel --dmenu --prompt="CPU Max Frequency:")
 
         # Do nothing if the user presses Escape
         if [[ -z "$chosen" ]]; then
@@ -44,7 +44,7 @@
         fi
 
         # if the user selected the MAX option then set the chosen frequency to the max frequency
-        if [ $chosen == "MAX" ]; then
+        if [ "$chosen" == "MAX" ]; then
             chosen=$(cat "$CPU_DIR/policy0/cpuinfo_max_freq")
         else # if the user selected a custom frequency
             # convert the users choice to a number
@@ -54,7 +54,12 @@
             chosen=$((chosen * 1000))
         fi
 
-        echo $chosen
+        echo "$chosen"
+
+        for i in "$CPU_DIR"/policy*; do
+            echo "$chosen to $i/scaling_max_freq"
+            echo "$chosen" | SUDO_ASKPASS="$(which zenityAskPass)" sudo -A tee "$i/scaling_max_freq"
+        done
       '';
     })
 
