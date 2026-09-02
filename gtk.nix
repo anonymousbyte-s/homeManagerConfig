@@ -15,7 +15,7 @@
     };
 
     cursorTheme = {
-      #name = "Nordzy-white-cursors";
+      name = "Posy_Cursor_Mono_Black";
       package = pkgs.posy-cursors;
     };
 
