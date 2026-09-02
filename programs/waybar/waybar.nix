@@ -77,12 +77,12 @@
         battery = {
           interval = 1;
           states = {
-            warning = 90;
+            warning = 20;
             critical = 10;
           };
           format = "{icon} {capacity:3d}%";
-          format-charging = "󰂄 {capacity}%";
-          format-plugged = "󰂄 {capacity}%";
+          format-charging = "󰂄 {capacity:3d}%";
+          format-plugged = "󰂄 {capacity:3d}%";
           format-full = "󱟢";
           format-icons = [
             "󰂃"

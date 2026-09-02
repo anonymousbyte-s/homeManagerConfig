@@ -20,7 +20,7 @@
         match = "${theme.color.blue}ff";
         selection = "${theme.color.blue}ff";
         selection-text = "${theme.color.black}ff";
-        selection-match = "${theme.color.red}ff";
+        selection-match = "${theme.color.magenta}ff";
         border = "${theme.color.blue}ff";
         input = "${theme.color.blue}ff";
       };
