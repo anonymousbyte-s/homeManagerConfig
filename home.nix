@@ -47,6 +47,9 @@ in
   # pass the theme colors to all modules
   _module.args.theme = theme;
 
+  # allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [

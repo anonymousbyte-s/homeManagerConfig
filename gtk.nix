@@ -14,6 +14,11 @@
       package = pkgs.morewaita-icon-theme;
     };
 
+    cursorTheme = {
+      #name = "Nordzy-white-cursors";
+      package = pkgs.posy-cursors;
+    };
+
     font = {
       name = "CommitMono";
       size = 10;

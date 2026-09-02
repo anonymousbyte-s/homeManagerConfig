@@ -29,6 +29,12 @@ in
     impala # WiFi TUI
     bluetui # bluetooth TUI
     fuzzel # fuzzy search
+
+    # desktop apps
+    qalculate-gtk # calculator
+    libreoffice # office application suite
+    vlc # media player
+    gimp # image viewer and editor
   ];
 
   # copy the wallpaper file in the current directory to a wallpaper directory
