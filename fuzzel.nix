@@ -1,4 +1,9 @@
-{ config, pkgs, theme, ... }:
+{
+  config,
+  pkgs,
+  theme,
+  ...
+}:
 
 {
   programs.fuzzel = {
@@ -13,7 +18,7 @@
         background = "${theme.color.black}ff";
         text = "${theme.color.brightWhite}ff";
         match = "${theme.color.blue}ff";
-        selection = "${theme.color.blue}cff";
+        selection = "${theme.color.blue}ff";
         selection-text = "${theme.color.black}ff";
         selection-match = "${theme.color.red}ff";
         border = "${theme.color.blue}ff";

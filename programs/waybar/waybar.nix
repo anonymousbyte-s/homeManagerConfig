@@ -77,7 +77,7 @@
         battery = {
           interval = 1;
           states = {
-            warning = 20;
+            warning = 90;
             critical = 10;
           };
           format = "{icon} {capacity:3d}%";

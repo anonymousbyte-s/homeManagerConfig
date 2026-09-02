@@ -14,14 +14,16 @@
       package = pkgs.morewaita-icon-theme;
     };
 
-    cursorTheme = {
-      name = "Posy_Cursor_Mono_Black";
-      package = pkgs.posy-cursors;
-    };
-
     font = {
       name = "CommitMono";
       size = 10;
     };
+  };
+
+  home.pointerCursor = {
+    enable = true;
+    name = "Posy_Cursor_Mono_Black";
+    package = pkgs.posy-cursors;
+    size = 24;
   };
 }

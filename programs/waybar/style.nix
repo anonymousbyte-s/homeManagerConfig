@@ -30,6 +30,8 @@
         background-color: rgba(0, 0, 0, 0);
     }
 
+    /* === Workspaces === */
+
     #workspaces {
         background-color: #${theme.color.black};
         margin: 4px 3px;
@@ -71,9 +73,7 @@
         margin: 0;
     }
 
-    /* =============================================================================
-     * HARDWARE & STATUS CONFIGURATION (RIGHT SECTION)
-     * ============================================================================= */
+    /* === Default icon config === */
 
     #clock,
     #battery,
@@ -97,6 +97,7 @@
         border-radius: 8px;
     }
 
+    /* === Spacing fixes === */
 
     #backlight {
         padding-left: 7px;
@@ -129,10 +130,22 @@
         font-weight: bold;
     }
 
+    /* === Battery === */
+
+    #battery:hover {
+        background-color: #${theme.color.blue};
+        color: #${theme.color.black};
+    }
+
     /* Battery charging */
     #battery.charging {
         background-color: #${theme.color.black};
         color: #${theme.color.green};
+    }
+
+    #battery.charging:hover {
+        background-color: #${theme.color.green};
+        color: #${theme.color.black};
     }
 
     /* Battery warning */
@@ -141,18 +154,16 @@
         color: #${theme.color.yellow};
     }
 
-    /* Critical battery style */
-    #battery.critical:not(.charging) {
-        background-color: #${theme.color.red};
+    #battery.warning:not(.charging):hover {
+        background-color: #${theme.color.yellow};
         color: #${theme.color.black};
     }
 
-    #cpu {
-        color: #${theme.color.blue};
-    }
-
-    #memory {
-        color: #${theme.color.blue};
+    /* Critical battery style */
+    #battery.critical:not(.charging):hover,
+    #battery.critical:not(.charging) {
+        background-color: #${theme.color.red};
+        color: #${theme.color.black};
     }
   '';
 }
