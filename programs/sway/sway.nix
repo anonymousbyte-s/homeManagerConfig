@@ -29,12 +29,7 @@ in
     impala # WiFi TUI
     bluetui # bluetooth TUI
     fuzzel # fuzzy search
-
-    # desktop apps
-    qalculate-gtk # calculator
-    libreoffice # office application suite
-    vlc # media player
-    gimp # image viewer and editor
+    pkgs.zenity # GUI prompter
   ];
 
   # copy the wallpaper file in the current directory to a wallpaper directory
@@ -46,7 +41,7 @@ in
 
     # include the input config file for machine specific fixes, like trackpad scroll direction
     extraConfig = ''
-      include /etc/nixos/programs/sway/sway-input.conf
+      include /etc/nixos-managed/sway/sway-input.conf
     '';
 
     config = {

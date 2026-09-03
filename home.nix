@@ -53,8 +53,13 @@ in
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    # GUI prompter
-    pkgs.zenity
+    # desktop apps
+    pkgs.firefox # web browser
+    pkgs.zed-editor # text editor
+    pkgs.qalculate-gtk # calculator
+    pkgs.libreoffice # office application suite
+    pkgs.vlc # media player
+    pkgs.gimp # image viewer and editor
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
