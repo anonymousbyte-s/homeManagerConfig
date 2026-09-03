@@ -10,26 +10,46 @@
       ];
 
       text = ''
-        # Path to CPU scaling info
         CPU_DIR="/sys/devices/system/cpu/cpufreq"
+
+        currentFrequency=$(<"$CPU_DIR/policy0/scaling_max_freq")
+        frequencyArray=()
 
         # check that the cpu info files exist
         if [[ -f "$CPU_DIR/policy0/cpuinfo_max_freq" && -f "$CPU_DIR/policy0/cpuinfo_min_freq" ]]; then
             # Read the max hardware frequency (stored in kHz)
-            MAX_KHZ=$(cat "$CPU_DIR/policy0/cpuinfo_max_freq")
+            MAX_KHZ=$(<"$CPU_DIR/policy0/cpuinfo_max_freq")
             # Read the min hardware frequency (stored in kHz)
-            MIN_KHZ=$(cat "$CPU_DIR/policy0/cpuinfo_min_freq")
+            MIN_KHZ=$(<"$CPU_DIR/policy0/cpuinfo_min_freq")
 
             # Convert to MHz
             MAX_MHZ=$((MAX_KHZ / 1000))
             MIN_MHZ=$((MIN_KHZ / 1000))
 
             # make the frequency options string
-            options="MAX\n"
+            options="  MAX\n"
             for (( i="$MAX_MHZ"; i>="$MIN_MHZ"; i -= 250 ))
             do
-                options+="''${i}MHz\n"
+                if ((currentFrequency / 1000 == i)); then
+                    options+="󰄵"
+                else
+                    options+="󰄱"
+                fi
+                options+=" ''${i}MHz\n"
+                frequencyArray+=("''${i}")
             done
+
+            # add the min frequency value if it is not present
+            if (( ''${frequencyArray[@]: -1} != MIN_MHZ )); then
+                if ((currentFrequency / 1000 == i)); then
+                    options+="󰄵"
+                else
+                    options+="󰄱"
+                fi
+                options+=" ''${MIN_MHZ}MHz\n"
+                frequencyArray+=("''${MIN_MHZ}")
+            fi
+
             # remove the last new line character from the end of the string
             options="''${options/%"\n"/}"
         else
@@ -38,7 +58,7 @@
         fi
 
         # prompt the use to select a frequency
-        chosen=$(echo -e "$options" | fuzzel --dmenu --prompt="CPU Max Frequency:")
+        chosen=$(echo -e "$options" | fuzzel --dmenu --index --minimal-lines --prompt="CPU frequency limit:")
 
         # Do nothing if the user presses Escape
         if [[ -z "$chosen" ]]; then
@@ -46,11 +66,11 @@
         fi
 
         # if the user selected the MAX option then set the chosen frequency to the max frequency
-        if [ "$chosen" == "MAX" ]; then
-            chosen=$(cat "$CPU_DIR/policy0/cpuinfo_max_freq")
+        if ((chosen == 0)); then
+            chosen=$(<"$CPU_DIR/policy0/cpuinfo_max_freq")
         else # if the user selected a custom frequency
             # convert the users choice to a number
-            chosen=''${chosen//[!0-9]/}
+            chosen=''${frequencyArray[((chosen - 1))]}
 
             # convert the number back to KHz
             chosen=$((chosen * 1000))
@@ -59,6 +79,7 @@
         for i in "$CPU_DIR"/policy*; do
             echo "$chosen" | SUDO_ASKPASS="$(which zenityAskPass)" sudo -A tee "$i/scaling_max_freq"
         done
+
       '';
     })
 
@@ -87,21 +108,20 @@
             fi
             availableModes+=''${outputArray[index]}
             availableModes+="\n"
-            ((index++))
+            ((++index))
         done
 
         availableModes=''${availableModes%"\n"}
-        echo $availableModes
 
         # prompt the use to select a frequency
-        chosen=$(echo -e $availableModes | fuzzel --dmenu --minimal-lines --index --prompt="Set power mode:")
+        chosen=$(echo -e "$availableModes" | fuzzel --dmenu --minimal-lines --index --prompt="Set power mode:")
 
         # Do nothing if the user presses Escape
         if [[ -z "$chosen" ]]; then
             exit 0
             fi
 
-        tlpctl ''${rawValueArray[chosen]}
+        tlpctl "''${rawValueArray[chosen]}"
       '';
     })
 
