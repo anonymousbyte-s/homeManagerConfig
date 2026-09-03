@@ -80,6 +80,7 @@
 
         battery = {
           on-click = "powerMenu";
+          on-click-right = "logoutMenu";
           interval = 1;
           states = {
             warning = 20;

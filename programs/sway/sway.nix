@@ -60,6 +60,8 @@ in
         };
       };
 
+      defaultWorkspace = "workspace number 1";
+
       startup = [
         # reload waybar whenever the wm is restarted
         {

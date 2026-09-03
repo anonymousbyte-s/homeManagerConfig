@@ -126,6 +126,29 @@
     })
 
     (pkgs.writeShellApplication {
+      name = "logoutMenu";
+
+      runtimeInputs = [
+        pkgs.zenity
+      ];
+
+      text = ''
+        commandArray=("systemctl suspend && swaylock" "swaymsg exit" "shutdown now" "reboot")
+        displayOptions="󰤄 Sleep\n Logout\n Shutdown\n Reboot"
+
+        # prompt the use to select a frequency
+        chosen=$(echo -e "$displayOptions" | fuzzel --dmenu --index --minimal-lines --hide-prompt)
+
+        # Do nothing if the user presses Escape
+        if [[ -z "$chosen" ]]; then
+            exit 0
+        fi
+
+        eval "''${commandArray [ chosen ]}"
+      '';
+    })
+
+    (pkgs.writeShellApplication {
       name = "zenityAskPass";
 
       runtimeInputs = [
