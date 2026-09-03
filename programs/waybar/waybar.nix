@@ -79,6 +79,7 @@
         };
 
         battery = {
+          on-click = "powerMenu";
           interval = 1;
           states = {
             warning = 20;

@@ -30,6 +30,8 @@
             do
                 options+="''${i}MHz\n"
             done
+            # remove the last new line character from the end of the string
+            options="''${options/%"\n"/}"
         else
             echo "CPU frequency scaling files not found. Are you running inside a VM?"
             exit 0
@@ -57,6 +59,49 @@
         for i in "$CPU_DIR"/policy*; do
             echo "$chosen" | SUDO_ASKPASS="$(which zenityAskPass)" sudo -A tee "$i/scaling_max_freq"
         done
+      '';
+    })
+
+    (pkgs.writeShellApplication {
+      name = "powerMenu";
+
+      runtimeInputs = [
+        pkgs.fuzzel
+      ];
+
+      text = ''
+        rawValueArray=("performance" "balanced" "power-saver")
+        outputArray=("  Performance" " 󰗑 Balanced" " 󱈏 Power Saver")
+
+        currentMode=$(tlpctl get)
+
+        availableModes=""
+
+        # Loop through each value
+        index=0
+        for value in "''${rawValueArray[@]}"; do
+            if [[ "$currentMode" == "$value" ]]; then
+                availableModes+="󰄵"
+            else
+                availableModes+="󰄱"
+            fi
+            availableModes+=''${outputArray[index]}
+            availableModes+="\n"
+            ((index++))
+        done
+
+        availableModes=''${availableModes%"\n"}
+        echo $availableModes
+
+        # prompt the use to select a frequency
+        chosen=$(echo -e $availableModes | fuzzel --dmenu --minimal-lines --index --prompt="Set power mode:")
+
+        # Do nothing if the user presses Escape
+        if [[ -z "$chosen" ]]; then
+            exit 0
+            fi
+
+        tlpctl ''${rawValueArray[chosen]}
       '';
     })
 

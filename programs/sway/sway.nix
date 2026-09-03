@@ -26,10 +26,13 @@ in
     wl-clipboard # copy paste
     grim # screen shot manager
     slurp # partial screen shot manager
-    impala # WiFi TUI
-    bluetui # bluetooth TUI
     fuzzel # fuzzy search
     pkgs.zenity # GUI prompter
+
+    # user apps
+    impala # WiFi TUI
+    bluetui # bluetooth TUI
+    powertop # power monitor TUI
   ];
 
   # copy the wallpaper file in the current directory to a wallpaper directory
