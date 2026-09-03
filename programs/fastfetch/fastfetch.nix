@@ -137,7 +137,7 @@
         }
         {
           type = "gpu";
-          key = "├󰾲 GPU";
+          key = "├󰢮 GPU";
           keyColor = "cyan";
           format = "{name} @{frequency}";
         }

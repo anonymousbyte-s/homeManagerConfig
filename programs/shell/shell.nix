@@ -144,7 +144,7 @@
             exit 0
         fi
 
-        eval "''${commandArray [ chosen ]}"
+        eval "''${commandArray[$chosen]}"
       '';
     })
 
