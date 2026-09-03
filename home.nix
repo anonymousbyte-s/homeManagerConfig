@@ -16,6 +16,7 @@ in
     # sway
     ./programs/sway/sway.nix # sway wm
     ./programs/swayLock/swayLock.nix # screen locker for the sway wm
+    ./programs/swaync/swaync.nix # sway notification daemon
 
     # terminal
     ./programs/foot/foot.nix

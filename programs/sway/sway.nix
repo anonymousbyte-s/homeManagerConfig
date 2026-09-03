@@ -27,7 +27,8 @@ in
     grim # screen shot manager
     slurp # partial screen shot manager
     fuzzel # fuzzy search
-    pkgs.zenity # GUI prompter
+    zenity # GUI prompter
+    swaynotificationcenter # notification daemon for sway
 
     # user apps
     impala # WiFi TUI
