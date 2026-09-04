@@ -94,8 +94,8 @@
         background-color: #${theme.color.black};
         color: #${theme.color.blue};
         padding: 2px 7px;
-        margin: 3px 3px;
-        border-radius: 8px;
+        /*margin: 3px 3px;*/
+        /*border-radius: 8px;*/
     }
 
     /* === default on hover behavior === */
