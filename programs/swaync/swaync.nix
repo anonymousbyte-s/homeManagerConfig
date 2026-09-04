@@ -14,6 +14,13 @@
       control-center-margin-left = 0;
       timeout = 5;
 
+      # widget order
+      widgets = [
+        "title"
+        "dnd"
+        "notifications"
+      ];
+
       widget-config = {
         dnd = {
           text = "Do not disturb";
@@ -134,8 +141,8 @@
       .control-center .notification-row .notification-background {
         background-color: #${theme.color.black};
         border-radius: 16px;
-        margin: 4px 0px;
-        padding: 4px;
+        margin: 5px;
+        padding: 0px;
       }
 
       .control-center .notification-row .notification-background .notification {

@@ -6,6 +6,8 @@
 }:
 
 {
+  # copy the NixOS logo file in the current directory to the picures directory
+  home.file."Pictures/fastFetchLogos/NixOS.png".source = ./NixOS.png;
   programs.fastfetch = {
     enable = true;
     settings = {
