@@ -91,11 +91,13 @@
     #idle_inhibitor,
     #window,
     #custom-swaync {
-        background-color: #${theme.color.black};
         color: #${theme.color.blue};
-        padding: 2px 7px;
-        /*margin: 3px 3px;*/
-        /*border-radius: 8px;*/
+        /* only the left side is angled, so only that side needs the extra 15px of padding */
+        padding: 2px 7px 2px calc(15px + 7px);
+        margin: 0px 20px 0px -20px;
+        border: 1px solid #4CAF50;
+        background: linear-gradient(60deg, transparent 15px, #${theme.color.white} 15px);
+        box-shadow: 20px 0px 0px 0px #${theme.color.white};
     }
 
     /* === default on hover behavior === */
@@ -105,12 +107,13 @@
     #bluetooth:hover,
     #pulseaudio:hover,
     #custom-swaync:hover {
-        background-color: #${theme.color.blue};
+        background: linear-gradient(60deg, transparent 15px, #${theme.color.blue} 15px);
+        box-shadow: 20px 0px 0px 0px #${theme.color.blue};
         color: #${theme.color.black};
     }
 
     /* === Spacing fixes === */
-    #backlight {
+    /*#backlight {
         padding-left: 7px;
         padding-right: 9px;
     }
@@ -127,7 +130,7 @@
     #pulseaudio {
         padding-left: 7px;
         padding-right: 9px;
-    }
+    }*/
 
     /* === backlight module === */
     #backlight {
