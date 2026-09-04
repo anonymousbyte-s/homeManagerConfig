@@ -1,21 +1,21 @@
 {
   color = {
-    black = "282828";
-    red = "cc241d";
-    green = "89871a";
-    yellow = "d79921";
-    blue = "458588";
-    magenta = "b16286";
-    cyan = "689d6a";
-    white = "a89984";
+    black = "1c1b19";
+    red = "ef2f27";
+    green = "519f50";
+    yellow = "fbb829";
+    blue = "2c78bf";
+    magenta = "e02c6d";
+    cyan = "0aaeb3";
+    white = "baa67f";
 
-    brightBlack = "928374";
-    brightRed = "fb4934";
-    brightGreen = "b8bb26";
-    brightYellow = "fabd2f";
-    brightBlue = "83a598";
-    brightMagenta = "d3869b";
-    brightCyan = "8ec07c";
-    brightWhite = "ebdbb2";
+    brightBlack = "918175";
+    brightRed = "f75341";
+    brightGreen = "98bc37";
+    brightYellow = "fed06e";
+    brightBlue = "68a8e4";
+    brightMagenta = "ff5c8f";
+    brightCyan = "2be4d0";
+    brightWhite = "fce8c3";
   };
 }
