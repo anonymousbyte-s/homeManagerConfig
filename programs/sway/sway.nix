@@ -28,7 +28,8 @@ in
     slurp # partial screen shot manager
     fuzzel # fuzzy search
     zenity # GUI prompter
-    swaynotificationcenter # notification daemon for sway
+    libnotify # allows for the use of the notify-send command
+    swaynotificationcenter # displays notifications in the sway WM
 
     # user apps
     impala # WiFi TUI

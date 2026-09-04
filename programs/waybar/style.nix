@@ -34,7 +34,7 @@
 
     #workspaces {
         background-color: #${theme.color.black};
-        margin: 4px 3px;
+        margin: 3px 3px;
         border-radius: 8px;
     }
 
@@ -89,7 +89,8 @@
     #tray,
     #mode,
     #idle_inhibitor,
-    #window {
+    #window,
+    #custom-swaync {
         background-color: #${theme.color.black};
         color: #${theme.color.blue};
         padding: 2px 7px;
@@ -102,7 +103,8 @@
     #memory:hover,
     #network:hover,
     #bluetooth:hover,
-    #pulseaudio:hover {
+    #pulseaudio:hover,
+    #custom-swaync:hover {
         background-color: #${theme.color.blue};
         color: #${theme.color.black};
     }
