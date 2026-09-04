@@ -18,17 +18,15 @@ in
     ./programs/swayLock/swayLock.nix # screen locker for the sway wm
     ./programs/swaync/swaync.nix # sway notification daemon
 
-    # terminal
-    ./programs/foot/foot.nix
+    ./programs/foot/foot.nix # terminal
 
-    # fast fetch
-    ./programs/fastfetch/fastfetch.nix
+    ./programs/fastfetch/fastfetch.nix # fast fetch
 
-    # git
-    ./programs/git/git.nix
+    ./programs/git/git.nix # git
 
-    # shell applications
-    ./programs/shell/shell.nix
+    ./programs/shell/shell.nix # custom shell applications
+
+    ./programs/bash/bash.nix # bash config
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
