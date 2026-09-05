@@ -24,7 +24,7 @@
         spacing = -20;
         modules-left = [
           "sway/workspaces"
-          # "sway/window"
+          "sway/window"
         ];
         modules-center = [ "clock" ];
         modules-right = [
@@ -39,9 +39,11 @@
         ];
 
         # Modules
-
         "sway/window" = {
           format = "{}";
+          rewrite = {
+            "^$" = "<span font='22px'></span>";
+          };
           max-length = 50;
         };
 
