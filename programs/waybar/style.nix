@@ -117,9 +117,7 @@
 
     /* Window title bar when no windows are open */
     window#waybar.empty #window {
-        padding-right: calc(15px + 7px + 5px);
-        padding-top: 0px;
-        padding-bottom: 0px;
+        padding: 0px calc(15px + 7px + 5px) 0px calc(15px + 2px);
         color: #${theme.color.cyan};
     }
 
