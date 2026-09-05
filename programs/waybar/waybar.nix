@@ -15,13 +15,13 @@
       enable = true;
     };
 
-    #style = builtins.readFile ../waybar/style.css;
     settings = [
       {
         layer = "top";
         position = "top";
         height = 30;
         margin = "0 0 0 0";
+        spacing = -20;
         modules-left = [
           "sway/workspaces"
           "sway/window"
@@ -39,9 +39,11 @@
         ];
 
         # Modules
-
         "sway/window" = {
           format = "{}";
+          rewrite = {
+            "^$" = "<span font='22px'></span>";
+          };
           max-length = 50;
         };
 
