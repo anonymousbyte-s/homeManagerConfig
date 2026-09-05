@@ -15,16 +15,16 @@
       enable = true;
     };
 
-    #style = builtins.readFile ../waybar/style.css;
     settings = [
       {
         layer = "top";
         position = "top";
         height = 30;
         margin = "0 0 0 0";
+        spacing = -20;
         modules-left = [
           "sway/workspaces"
-          "sway/window"
+          # "sway/window"
         ];
         modules-center = [ "clock" ];
         modules-right = [
@@ -68,13 +68,13 @@
         cpu = {
           on-click = "foot btop";
           on-click-right = "cpuFrequencyMenu";
-          interval = 0.1;
+          interval = 1;
           format = " {usage:3d}%";
         };
 
         memory = {
           on-click = "foot btop";
-          interval = 0.1;
+          interval = 1;
           format = " {used:5.2f}Gb";
           tooltip-format = " {used:.2f}/{total}Gb\n󰾴  {swapUsed:.2f}/{swapTotal}Gb";
         };
