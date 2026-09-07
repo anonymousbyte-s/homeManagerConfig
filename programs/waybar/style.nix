@@ -239,15 +239,15 @@
 
     /* Battery charging */
     #battery.charging {
-        background: linear-gradient(60deg, transparent 15px, #${theme.color.black} 15px);
-        box-shadow: 20px 0px 0px 0px #${theme.color.black};
-        color: #${theme.color.green};
+        background: linear-gradient(60deg, transparent 15px, #${theme.color.blue} 15px);
+        box-shadow: 20px 0px 0px 0px #${theme.color.blue};
+        color: #${theme.color.brightGreen};
     }
 
     #battery.charging:hover {
-        background: linear-gradient(60deg, transparent 15px, #${theme.color.green} 15px);
-        box-shadow: 20px 0px 0px 0px #${theme.color.green};
-        color: #${theme.color.black};
+        background: linear-gradient(60deg, transparent 15px, #${theme.color.brightGreen} 15px);
+        box-shadow: 20px 0px 0px 0px #${theme.color.brightGreen};
+        color: #${theme.color.blue};
     }
 
     /* Battery warning */
