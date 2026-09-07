@@ -27,6 +27,8 @@ in
     ./programs/shell/shell.nix # custom shell applications
 
     ./programs/bash/bash.nix # bash config
+
+    ./programs/zed/zed.nix # text editor
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -54,7 +56,6 @@ in
   home.packages = [
     # desktop apps
     pkgs.firefox # web browser
-    pkgs.zed-editor # text editor
     pkgs.qalculate-gtk # calculator
     pkgs.libreoffice # office application suite
     pkgs.vlc # media player
