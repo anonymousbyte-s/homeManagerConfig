@@ -173,6 +173,8 @@
     }
 
     #network {
+        padding-left: 20px;
+        padding-right: 10px;
         background: linear-gradient(60deg, transparent 15px, #${theme.color.cyan} 15px);
         box-shadow: 20px 0px 0px 0px #${theme.color.cyan};
         color: #${theme.color.black};
@@ -187,7 +189,7 @@
     #pulseaudio {
         background: linear-gradient(60deg, transparent 15px, #${theme.color.black} 15px);
         box-shadow: 20px 0px 0px 0px #${theme.color.black};
-        color: #${theme.color.white};
+        color: #${theme.color.brightWhite};
     }
 
     #backlight {
