@@ -17,6 +17,9 @@ let
   down = "j";
 in
 {
+  imports = [
+    ./swayIdle.nix
+  ];
   # packages for sway to use
   home.packages = with pkgs; [
     waybar # top bar for wayland

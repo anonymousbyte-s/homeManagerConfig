@@ -61,6 +61,13 @@ in
     pkgs.vlc # media player
     pkgs.gimp # image viewer and editor
 
+    pkgs.prusa-slicer # Gcode generator
+
+    pkgs.sdrpp # SDR interface
+    pkgs.satdump # satelite signal decoder
+
+    pkgs.prismlauncher # minecraft launcher
+
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
