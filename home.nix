@@ -61,11 +61,16 @@ in
     pkgs.vlc # media player
     pkgs.gimp # image viewer and editor
 
+    # nerdy stuff
     pkgs.prusa-slicer # Gcode generator
 
     pkgs.sdrpp # SDR interface
     pkgs.satdump # satelite signal decoder
 
+    pkgs.inav-configurator # inav flight software configurator
+    pkgs.betaflight-configurator # betaflight flight software configurator
+
+    # games
     pkgs.prismlauncher # minecraft launcher
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
