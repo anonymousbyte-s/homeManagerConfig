@@ -55,6 +55,13 @@ in
       "inav-configurator-9.0.0"
     ];
 
+    # for running local AI
+    services.ollama = {
+        enable = true;
+        # Optional: choose "cuda" or "rocm" for GPU acceleration
+        #acceleration = "cuda";
+      };
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
@@ -65,6 +72,8 @@ in
     pkgs.libreoffice # office application suite
     pkgs.vlc # media player
     pkgs.gimp # image viewer and editor
+
+    pkgs.kdePackages.okular # PDF annotator
 
     # nerdy stuff
     pkgs.prusa-slicer # Gcode generator

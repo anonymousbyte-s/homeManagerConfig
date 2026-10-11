@@ -33,6 +33,7 @@ in
     zenity # GUI prompter
     libnotify # allows for the use of the notify-send command
     swaynotificationcenter # displays notifications in the sway WM
+    autotiling-rs # sway auto tiler
 
     # user apps
     impala # WiFi TUI
@@ -71,6 +72,10 @@ in
         # reload waybar whenever the wm is restarted
         {
           command = "systemctl --user restart waybar";
+          always = true;
+        }
+        {
+          command = "autotiling-rs";
           always = true;
         }
       ];
