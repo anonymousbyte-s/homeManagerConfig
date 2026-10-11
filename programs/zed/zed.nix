@@ -7,6 +7,7 @@
     clang-tools
     gdb
     nixd
+    nixfmt
   ];
 
   programs.zed-editor = {
