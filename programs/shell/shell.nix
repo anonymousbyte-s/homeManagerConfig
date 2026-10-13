@@ -162,5 +162,19 @@
           --title="Sudo Authentication"
       '';
     })
+
+    (pkgs.writeShellApplication {
+      name = "switchRefreshRate";
+
+      text = ''
+          refreshRate=$(swaymsg -t get_outputs --raw | grep refresh | tail -1)
+
+          if [[ "$refreshRate" == *"165"* ]]; then
+            swaymsg output eDP-2 mode 1920x1200@60.005Hz
+          else
+            swaymsg output eDP-2 mode 1920x1200@165.015Hz
+          fi
+      '';
+    })
   ];
 }
