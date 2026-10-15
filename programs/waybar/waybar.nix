@@ -68,14 +68,14 @@
         };
 
         cpu = {
-          on-click = "foot btop";
-          on-click-right = "cpuFrequencyMenu";
+          on-click = "cpuFrequencyMenu";
+          on-click-right = "foot btop";
           interval = 1;
           format = " {usage:3d}%";
         };
 
         memory = {
-          on-click = "foot btop";
+          on-click-right = "foot btop";
           interval = 1;
           format = " {used:5.2f}Gb";
           tooltip-format = " {used:.2f}/{total}Gb\n󰾴  {swapUsed:.2f}/{swapTotal}Gb";

@@ -52,15 +52,15 @@ in
   nixpkgs.config.allowUnfree = true;
 
   nixpkgs.config.permittedInsecurePackages = [
-      "inav-configurator-9.0.0"
-    ];
+    "inav-configurator-9.0.0"
+  ];
 
-    # for running local AI
-    services.ollama = {
-        enable = true;
-        # Optional: choose "cuda" or "rocm" for GPU acceleration
-        #acceleration = "cuda";
-      };
+  # for running local AI
+  services.ollama = {
+    enable = true;
+    # Optional: choose "cuda" or "rocm" for GPU acceleration
+    #acceleration = "cuda";
+  };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -83,6 +83,9 @@ in
 
     pkgs.inav-configurator # inav flight software configurator
     pkgs.betaflight-configurator # betaflight flight software configurator
+
+    # dev
+    pkgs.qtcreator # IDE for QT applications
 
     # games
     pkgs.prismlauncher # minecraft launcher
