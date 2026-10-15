@@ -84,6 +84,10 @@ in
     pkgs.inav-configurator # inav flight software configurator
     pkgs.betaflight-configurator # betaflight flight software configurator
 
+    pkgs.tio # serial TTY monitor
+
+    pkgs.usbimager # .img flasher
+
     # dev
     pkgs.qtcreator # IDE for QT applications
 

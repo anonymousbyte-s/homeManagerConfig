@@ -107,6 +107,8 @@ in
         "${modifier}+Shift+e" =
           "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
 
+        "XF86Launch3" = "exec switchRefreshRate";
+
         # Special keys to adjust volume via PulseAudio
         "--locked XF86AudioRaiseVolume" = "exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+";
         "--locked XF86AudioLowerVolume" = "exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-";
