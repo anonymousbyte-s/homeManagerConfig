@@ -20,6 +20,7 @@
     userSettings = {
       theme = "Darker Horizon";
       hour_format = "hour24";
+      load_direnv = "direct";
     };
   };
 }

@@ -62,12 +62,13 @@ in
     #acceleration = "cuda";
   };
 
+  programs.firefox.enable = true;
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
     # desktop apps
-    pkgs.chromium
-    pkgs.firefox # web browser
+    pkgs.chromium # scum of this earth, but it is the most lightweight way to use web USB apps
     pkgs.qalculate-gtk # calculator
     pkgs.libreoffice # office application suite
     pkgs.vlc # media player
