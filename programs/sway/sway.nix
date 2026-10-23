@@ -39,6 +39,7 @@ in
     impala # WiFi TUI
     bluetui # bluetooth TUI
     powertop # power monitor TUI
+    vscode # Visual Studio Code editor
   ];
 
   # copy the wallpaper file in the current directory to a wallpaper directory

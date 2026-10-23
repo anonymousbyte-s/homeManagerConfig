@@ -29,6 +29,8 @@ in
     ./programs/bash/bash.nix # bash config
 
     ./programs/zed/zed.nix # text editor
+
+    ./programs/vscode/vscode.nix # visual studio code
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
