@@ -55,13 +55,6 @@ in
     "inav-configurator-9.0.0"
   ];
 
-  # for running local AI
-  services.ollama = {
-    enable = true;
-    # Optional: choose "cuda" or "rocm" for GPU acceleration
-    #acceleration = "cuda";
-  };
-
   programs.firefox.enable = true;
 
   # The home.packages option allows you to install Nix packages into your
