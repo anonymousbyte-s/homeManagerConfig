@@ -34,6 +34,7 @@ in
     libnotify # allows for the use of the notify-send command
     swaynotificationcenter # displays notifications in the sway WM
     autotiling-rs # sway auto tiler
+    playerctl # media controller
 
     # user apps
     impala # WiFi TUI

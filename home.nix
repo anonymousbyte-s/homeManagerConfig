@@ -57,6 +57,14 @@ in
 
   programs.firefox.enable = true;
 
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
+  # used for PlatformIO
+  programs.vscode.enable = true;
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
@@ -80,7 +88,7 @@ in
 
     pkgs.tio # serial TTY monitor
 
-    pkgs.usbimager # .img flasher
+    pkgs.usbimager # .img/.iso flasher
 
     # dev
     pkgs.qtcreator # IDE for QT applications
