@@ -77,6 +77,8 @@ in
 
     pkgs.kdePackages.okular # PDF annotator
 
+    pkgs.shotcut # video editor
+
     # nerdy stuff
     pkgs.prusa-slicer # Gcode generator
 
@@ -89,9 +91,6 @@ in
     pkgs.tio # serial TTY monitor
 
     pkgs.usbimager # .img/.iso flasher
-
-    # dev
-    pkgs.qtcreator # IDE for QT applications
 
     # games
     pkgs.prismlauncher # minecraft launcher
